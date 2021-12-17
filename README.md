@@ -16,7 +16,7 @@ For example:
 
 #define MAC_ADDRESS "00:11:22:33:44:55"
 
-##Versions
+## Versions
 
 There are a bunch of tags which corresponds to different posts in the series.
 
@@ -33,4 +33,4 @@ This corresponds to the first post in the series. The program does the following
 This corresponds to the second post in the series. The program adds the following functions:
 
 * Added support for ipv4 packets
-* Added handling off
+* Added handling of basic icmp commands
