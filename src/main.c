@@ -7,11 +7,13 @@
 #include "arp.h"
 #include "netdev.h"
 #include "ethernet.h"
+#include "ipv4.h"
+#include "utils.h"
 
 #define BUFLEN 100
 
 /* Add IP address and MAC address here */
-#define IP_ADDRESS "xxx"
+#define IP_ADDRESS "10.0.0.4"
 #define MAC_ADDRESS "xxx"
 
 /* Handle different ethernet packets as they are received */
@@ -21,10 +23,10 @@ void handle_frame(struct netdev *dev, struct eth_hdr *hdr) {
       arp_incoming(dev, hdr);
       break;
     case ETH_P_IP:
-      printf("Received ipv4 packet\n");
+      ipv4_incoming(dev, hdr);
       break;
     default :
-      printf("Unsupported packet type = %i\n", hdr->ethertype);
+      printf("Unsupported packet type : 0x%x\n", hdr->ethertype);
       break;
   };
 }
@@ -49,6 +51,8 @@ int main (int argc, char** argv) {
 
     // Create an ethernet header struct from the buffer
     struct eth_hdr *hdr = init_eth_hdr(buf);
+
+    print_hexdump(buf, BUFLEN);
 
     // Handle the frame
     handle_frame(&netdev, hdr);

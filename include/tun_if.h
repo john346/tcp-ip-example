@@ -15,7 +15,7 @@
 #include "utils.h"
 
 // I am not sure why we have to use this address
-#define IP_ADDR "10.0.0.0/24"
+#define IP_ADDR "10.0.0.4/24"
 
 void tun_init(char *dev);
 int tun_read(char *buf, int len);
