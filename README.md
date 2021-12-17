@@ -1,4 +1,4 @@
-#TCP-IP Example
+# TCP-IP Example
 
 This is a simple practise project which was used to learn about building a basic TCP/IP stack for linux in C. This project is a work through of the blog series taken from here:
 
